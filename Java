@@ -1,0 +1,19 @@
+import java.util.HashMap;
+import java.util.List;
+
+public class ElementCounter {
+    public static HashMap<Integer, Integer> countElements(List<Integer> list) {
+        HashMap<Integer, Integer> elementCount = new HashMap<>();
+
+        // Iterate through the list and count the occurrences of each element
+        for (Integer element : list) {
+            if (elementCount.containsKey(element)) {
+                elementCount.put(element, elementCount.get(element) + 1);
+            } else {
+                elementCount.put(element, 1);
+            }
+        }
+
+        return elementCount;
+    }
+}
