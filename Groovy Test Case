@@ -1,0 +1,36 @@
+import spock.lang.Specification
+
+class ElementCounterSpec extends Specification {
+    def "test countElements with empty list"() {
+        given:
+        def list = []
+
+        when:
+        def result = countElements(list)
+
+        then:
+        result == [:]
+    }
+
+    def "test countElements with unique elements"() {
+        given:
+        def list = [1, 3, 4, 5]
+
+        when:
+        def result = countElements(list)
+
+        then:
+        result == [1: 1, 3: 1, 4: 1, 5: 1]
+    }
+
+    def "test countElements with repeated elements"() {
+        given:
+        def list = [1, 3, 4, 5, 1, 5, 4]
+
+        when:
+        def result = countElements(list)
+
+        then:
+        result == [1: 2, 3: 1, 4: 2, 5: 2]
+    }
+}
