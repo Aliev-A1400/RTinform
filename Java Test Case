@@ -1,0 +1,35 @@
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class ElementCounterTest {
+    @Test
+    void testCountElements() {
+        // Test case 1: Empty list
+        List<Integer> emptyList = Arrays.asList();
+        HashMap<Integer, Integer> expectedEmpty = new HashMap<>();
+        assertEquals(expectedEmpty, ElementCounter.countElements(emptyList));
+
+        // Test case 2: List with unique elements
+        List<Integer> uniqueList = Arrays.asList(1, 3, 4, 5);
+        HashMap<Integer, Integer> expectedUnique = new HashMap<>();
+        expectedUnique.put(1, 1);
+        expectedUnique.put(3, 1);
+        expectedUnique.put(4, 1);
+        expectedUnique.put(5, 1);
+        assertEquals(expectedUnique, ElementCounter.countElements(uniqueList));
+
+        // Test case 3: List with repeated elements
+        List<Integer> repeatedList = Arrays.asList(1, 3, 4, 5, 1, 5, 4);
+        HashMap<Integer, Integer> expectedRepeated = new HashMap<>();
+        expectedRepeated.put(1, 2);
+        expectedRepeated.put(3, 1);
+        expectedRepeated.put(4, 2);
+        expectedRepeated.put(5, 2);
+        assertEquals(expectedRepeated, ElementCounter.countElements(repeatedList));
+    }
+}
